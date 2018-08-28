@@ -128,10 +128,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         loadPreferences();
+        }
 
-        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    //Currently not working. Will build out during lecture on Tuesday
+    @OnClick(R.id.search)
+    public void search () {
+        //key — Your application's API key. This key identifies your application. See Get a key for more information.
+       // input — The text input specifying which place to search for (for example, a name, address, or phone number).
+       // inputtype — The type of input. This can be one of either textquery or phonenumber. Phone numbers must be in international format (prefixed by a plus sign ("+"), followed by the country code, then the phone number itself). See E.164 ITU recommendation for more information.
+
+//        String url = "";
+//        url += "?key=";
+//        url += "?input=";
+//        url += "?inputtype=textquery";
     }
+
 }
