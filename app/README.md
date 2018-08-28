@@ -9,23 +9,25 @@ Demostrates connectivity and realtime updates to map type, zoom and going to par
 
 **Internal Editor View**
 
-[Main Map View on Launch](/Users/sooz/codefellows/401Java/Labs/33-chatroom-status/screenshot/login.png)
+[Main Map View on Launch](//Users/sooz/codefellows/401Java/Labs/36-persistant-map-app/screenshots/launch_view.tiff)
 
-[Login Name Update](/Users/sooz/codefellows/401Java/Labs/33-chatroom-status/screenshot/login_name.png)
+[Zoom in toggle map 1](/Users/sooz/codefellows/401Java/Labs/36-persistant-map-app/screenshots/zoomin_togglemap_1.png)
 
-[Status Update](/Users/sooz/codefellows/401Java/Lab/33-chatroom-status/screenshot/status update.png)
+[Use Destination Button](/Users/sooz/codefellows/401Java/Labs/36-persistant-map-app/screenshots/use_boracay_button.png)
 
+[Use Zoom in and Toggle Boracay](/Users/sooz/codefellows/401Java/Labs/36-persistant-map-app/screenshots/zoomin_toggle_boracay2.tiff)
 
-**External View**
+[Leave App](/Users/sooz/codefellows/401Java/Labs/36-persistant-map-app/screenshots/leave_app_1.tiff)
 
-[Login Page](/Users/sooz/codefellows/401Java/Labs/33-chatroom-status/screenshot/login.png)
+[New App](/Users/sooz/codefellows/401Java/Labs/36-persistant-map-app/screenshots/new_app_2.tiff)
 
-[Login Name Update](/Users/sooz/codefellows/401Java/Labs/33-chatroom-status/screenshot/login_name.png)
+[Return to Saved Preferences](/Users/sooz/codefellows/401Java/Labs/36-persistant-map-app/screenshots/return_to_app_saved_pref_show.tiff)
 
-[Status Update](/Users/sooz/codefellows/401Java/Lab/33-chatroom-status/screenshot/status update.png)
 
 ##Credits/Resources
 
 __Thanks to:__
 
-- Instructor Steve Geluso for help and lecture
+- Instructor Steve Geluso for lecture
+- Android Developer Guide
+- Google API docs
