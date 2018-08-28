@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">GPSbyGBBeard</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="out">Zoom Out</string>
+    <string name="in">Zoom In</string>
+    <string name="toggle">Toggle Map View</string>
+    <string name="seattle">Seattle</string>
+    <string name="gehenZumGeiselwind">Gehen Zum Geiselwind</string>
+</resources>
