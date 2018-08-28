@@ -107,7 +107,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @OnClick(R.id.seattleMarker)
     public void goToSeattle() {
-        LatLng seattle = new LatLng(47.6062095, -122.3320708);
+        LatLng seattle = new LatLng(47.6062, -122.3320);
         mMap.addMarker(new MarkerOptions().position(seattle).title("Marker in Seattle"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));
     }
