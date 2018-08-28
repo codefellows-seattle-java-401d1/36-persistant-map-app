@@ -12,5 +12,12 @@ This app includes:
 * A button that takes the user to one of your favorite places
 
 ## Documentation
-Seattle Button
-![Seattle Button]()
+
+### Seattle Button
+<img src="https://github.com/AmyCohen/36-persistant-map-app/blob/master/app/assets/seattle_home.png" data-canonical-src="https://github.com/AmyCohen/36-persistant-map-app/blob/master/app/assets/seattle_home.png" width="200"/>
+
+### Actual Home with Zoom In
+<img src="https://github.com/AmyCohen/36-persistant-map-app/blob/master/app/assets/actual_home.png" data-canonical-src="https://github.com/AmyCohen/36-persistant-map-app/blob/master/app/assets/actual_home.png" width="200"/>
+
+### Toggle Map with Zoom Out
+<img src="https://github.com/AmyCohen/36-persistant-map-app/blob/master/app/assets/toggle_map.png" data-canonical-src="https://github.com/AmyCohen/36-persistant-map-app/blob/master/app/assets/toggle_map.png" width="200"/>
