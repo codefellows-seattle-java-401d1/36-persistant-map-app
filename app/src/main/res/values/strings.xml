@@ -2,4 +2,7 @@
     <string name="app_name">lab36persistenmapapp</string>
     <string name="title_activity_maps">Map</string>
     <string name="seattle">Seattle</string>
+    <string name="search">Search</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="zoom_in">Zoom In</string>
 </resources>
