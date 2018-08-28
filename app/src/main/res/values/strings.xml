@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyMapsApp</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="toggle_map_types">Toggle Map Types</string>
+    <string name="go_to_boracay">Go To Boracay</string>
+</resources>
