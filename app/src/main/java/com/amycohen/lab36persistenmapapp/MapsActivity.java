@@ -2,6 +2,7 @@ package com.amycohen.lab36persistenmapapp;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.PersistableBundle;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -31,6 +32,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         ButterKnife.bind(this);
+
+        if (mMap != null) {
+            loadPreferences();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        savePreferences();
     }
 
     public void savePreferences() {
