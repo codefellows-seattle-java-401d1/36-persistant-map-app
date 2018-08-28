@@ -19,6 +19,14 @@ import butterknife.OnClick;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
+    private int CURRENT_MAP_TYPE_INDEX = 1;
+    int[] MAP_TYPES = {
+            GoogleMap.MAP_TYPE_NORMAL,
+            GoogleMap.MAP_TYPE_HYBRID,
+            GoogleMap.MAP_TYPE_TERRAIN,
+            GoogleMap.MAP_TYPE_SATELLITE,
+    };
+
     private GoogleMap mMap;
     private Boolean isSatellite;
 
@@ -49,7 +57,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         SharedPreferences.Editor editor = prefs.edit();
 
-        editor.putBoolean("isSatellite", isSatellite);
+        editor.putInt("mapType", CURRENT_MAP_TYPE_INDEX);
         editor.putFloat("lat", (float) mMap.getCameraPosition().target.latitude);
         editor.putFloat("long", (float) mMap.getCameraPosition().target.longitude);
         editor.putFloat("zoom", mMap.getCameraPosition().zoom);
@@ -61,7 +69,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void loadPreferences() {
         SharedPreferences prefs = getSharedPreferences("com.amycohen.lab36persistenmapapp", Context.MODE_PRIVATE);
 
-        isSatellite = prefs.getBoolean("isSatellite", false);
+        CURRENT_MAP_TYPE_INDEX = prefs.getInt("mapType", 1);
 
         float latitude = prefs.getFloat("lat", (float) 47.6062095);
         float longitude = prefs.getFloat("long", (float) -122.3320708);
@@ -74,16 +82,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @OnClick(R.id.toggleMapType)
     public void toggleMapType () {
-        isSatellite = !isSatellite;
+        CURRENT_MAP_TYPE_INDEX ++;
+        CURRENT_MAP_TYPE_INDEX = CURRENT_MAP_TYPE_INDEX % MAP_TYPES.length;
         setMapType();
     }
 
     public void setMapType() {
-        int mapType = GoogleMap.MAP_TYPE_NORMAL;
-        if (isSatellite) {
-            mapType = GoogleMap.MAP_TYPE_SATELLITE;
-        }
-        mMap.setMapType(mapType);
+        mMap.setMapType(MAP_TYPES[CURRENT_MAP_TYPE_INDEX]);
     }
 
     @OnClick(R.id.zoomOut)
