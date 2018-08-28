@@ -1,5 +1,7 @@
 package droid.yutani.com.persistantmapapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.widget.Button;
@@ -37,6 +39,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         ButterKnife.bind(this);
+
+        if (mMap != null) {
+            loadPreferences();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        savePreferences();
+    }
+
+    public void savePreferences() {
+        SharedPreferences prefs = getSharedPreferences(
+          "droid.yutani.com.persistantmapapp",
+                Context.MODE_PRIVATE
+        );
+
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("mapType", CURRENT_MAP_INDEX);
+        editor.putFloat("lat", (float) mMap.getCameraPosition().target.latitude);
+        editor.putFloat("long", (float) mMap.getCameraPosition().target.longitude);
+        editor.putFloat("zoom", mMap.getCameraPosition().zoom);
+        editor.commit();
+    }
+
+    public void loadPreferences() {
+        SharedPreferences prefs = getSharedPreferences(
+                "droid.yutani.com.persistantmapapp",
+                Context.MODE_PRIVATE
+        );
+
+        CURRENT_MAP_INDEX = prefs.getInt("mapType", GoogleMap.MAP_TYPE_NORMAL);
+
+        float lat = prefs.getFloat("lat", 46);
+        float llong = prefs.getFloat("long", -121);
+        float zoom = prefs.getFloat("zoom", 4);
+
+        setMapType();
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(zoom));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat, llong)));
     }
 
     public void setZoom(float zoom) {
@@ -85,10 +128,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        loadPreferences();
     }
 }
