@@ -18,6 +18,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
 
+    private int CURRENT_MAP_INDEX = 1;
+
+    int[] MAP_TYPE = {
+            GoogleMap.MAP_TYPE_NORMAL,
+            GoogleMap.MAP_TYPE_TERRAIN,
+            GoogleMap.MAP_TYPE_HYBRID,
+            GoogleMap.MAP_TYPE_SATELLITE
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +43,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.zoomTo(zoom));
     }
 
+    public void setMapType() {
+        mMap.setMapType(MAP_TYPE[CURRENT_MAP_INDEX]);
+    }
+
     @OnClick(R.id.zoom_out)
     public void zoomOut() {
         float zoom = mMap.getCameraPosition().zoom;
@@ -44,6 +57,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void zoomIn() {
         float zoom = mMap.getCameraPosition().zoom;
         setZoom(zoom + 1);
+    }
+
+    @OnClick(R.id.toggle_sat_view)
+    public void toggleSatView() {
+        CURRENT_MAP_INDEX++;
+        CURRENT_MAP_INDEX = CURRENT_MAP_INDEX % MAP_TYPE.length;
+        setMapType();
     }
 
 
