@@ -44,6 +44,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/toggleMapType"
+        android:text="@string/toggle_map_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
         android:id="@+id/goToSeattle"
         android:text="@string/seattle"
         android:layout_width="match_parent"

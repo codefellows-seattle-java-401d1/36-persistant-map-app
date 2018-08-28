@@ -1,5 +1,7 @@
 package com.amycohen.lab36persistenmapapp;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -17,6 +19,7 @@ import butterknife.OnClick;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private Boolean isSatellite = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         ButterKnife.bind(this);
     }
 
+    public void savePreferences() {
+        SharedPreferences prefs = getSharedPreferences("com.amycohen.lab36persistenmapapp", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putBoolean("isSatellite", isSatellite);
+        editor.putFloat("lat", (float) mMap.getCameraPosition().target.latitude);
+        editor.putFloat("long", (float) mMap.getCameraPosition().target.longitude);
+        editor.putFloat("zoom", mMap.getCameraPosition().zoom);
+
+        editor.commit();
+
+    }
+
+    public void loadPreferences() {
+        SharedPreferences prefs = getSharedPreferences("com.amycohen.lab36persistenmapapp", Context.MODE_PRIVATE);
+
+        isSatellite = prefs.getBoolean("isSatellite", false);
+        float latitude = prefs.getFloat("lat", (float) 47.6062095);
+        float longitude = prefs.getFloat("long", (float) -122.3320708);
+        float zoom = prefs.getFloat("zoom", 4);
+    }
+
     @OnClick(R.id.zoomOut)
     public void ZoomOut () {
         float zoom = mMap.getCameraPosition().zoom;
@@ -40,7 +66,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void ZoomIn () {
         float zoom = mMap.getCameraPosition().zoom;
         setZoom (zoom + 1);
-
     }
 
     public void setZoom (float zoom) {
