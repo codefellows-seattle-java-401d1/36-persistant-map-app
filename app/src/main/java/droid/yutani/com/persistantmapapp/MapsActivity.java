@@ -66,6 +66,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setMapType();
     }
 
+    @OnClick(R.id.go_to_k2)
+    public void goToK2() {
+        LatLng k2 = new LatLng(35.879987, 76.5151001);
+        mMap.addMarker(new MarkerOptions().position(k2).title("K2"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(k2));
+    }
 
     /**
      * Manipulates the map once available.
