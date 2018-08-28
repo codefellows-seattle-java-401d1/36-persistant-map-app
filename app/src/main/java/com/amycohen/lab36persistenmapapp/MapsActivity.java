@@ -3,6 +3,7 @@ package com.amycohen.lab36persistenmapapp;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -27,6 +28,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         ButterKnife.bind(this);
+    }
+
+    @OnClick(R.id.zoomOut)
+    public void ZoomOut () {
+        float zoom = mMap.getCameraPosition().zoom;
+        setZoom (zoom - 1);
+    }
+
+    @OnClick(R.id.zoomIn)
+    public void ZoomIn () {
+        float zoom = mMap.getCameraPosition().zoom;
+        setZoom (zoom + 1);
+
+    }
+
+    public void setZoom (float zoom) {
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(zoom));
     }
 
     @OnClick(R.id.goToSeattle)
