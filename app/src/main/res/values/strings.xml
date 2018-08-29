@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Persistant Map App</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="zoom_out">Zoom Out</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="toggle_satellite_view">Toggle Satellite View</string>
+    <string name="go_to_k2">Go to K2</string>
+</resources>

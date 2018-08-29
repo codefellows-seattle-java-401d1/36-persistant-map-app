@@ -39,4 +39,13 @@ In your `README.md` include screenshots of your app.
 * Open a pull request to this repository
 * Submit on canvas a question and observation, how long you spent, and a link to
   your pull request
+  
+## Screenshots
+
+![](assets/ss-1.png)
+![](assets/ss-2.png)
+![](assets/ss-3.png)
+![](assets/ss-4.png)
+  
+  
 
