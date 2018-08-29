@@ -10,6 +10,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -22,8 +25,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        ButterKnife.bind(this);
     }
 
+    @OnClick(R.id.goToSeattle)
+    public void goToSeattle() {
+        LatLng seattle = new LatLng(47, -122);
+        mMap.addMarker(new MarkerOptions().position(seattle).title("Seattle"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(seattle));
+
+    }
 
     /**
      * Manipulates the map once available.
@@ -42,5 +54,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng sydney = new LatLng(-34, 151);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+    public void search() {
+        String url = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json";
+        url += "?key=AIzaSyAVIXzH0XjY3kOEN0PQYEsmR6iWCOuCCIc";
+        url += "?key=pizza";
+        url += "?inputtype=textquery";
     }
 }
