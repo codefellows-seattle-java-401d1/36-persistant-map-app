@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <Button
-            android:id="@+id/goToSeattle"
+            android:id="@+id/goToCleveland"
             android:text="@string/cleveland"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

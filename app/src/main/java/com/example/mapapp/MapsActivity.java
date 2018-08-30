@@ -108,8 +108,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.moveCamera(CameraUpdateFactory.zoomTo(zoom));
     }
 
-    @OnClick(R.id.goToSeattle)
-    public void goToSeattle() {
+    @OnClick(R.id.goToCleveland)
+    public void goToCleveland() {
         LatLng cleveland = new LatLng(41, -81);
         mMap.addMarker(new MarkerOptions().position(cleveland).title("Cleveland"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(cleveland));
